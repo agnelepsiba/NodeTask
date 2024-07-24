@@ -1,0 +1,35 @@
+[
+  {
+    "name": "xxxx",
+    "price": 80,
+    "id": 1
+  },
+  {
+    "name": "88iuyghu",
+    "price": 900,
+    "id": 2
+  },
+  {
+    "name": "Updated Product",
+    "price": 150,
+    "quantity": 20,
+    "id": 3
+  },
+  {
+    "name": "Updatedghjct",
+    "price": 750,
+    "quantity": 20,
+    "id": 4
+  },
+  {
+    "name": "Test Product",
+    "price": 19.99,
+    "description": "A description of the test product.",
+    "id": 5
+  },
+  {
+    "name": "Invalid Product",
+    "price": "not-a-number",
+    "id": 6
+  }
+]
