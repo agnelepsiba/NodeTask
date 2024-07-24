@@ -1,11 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
-const User = require('../models/user'); // Your user model
+const User = require('../models/user'); 
 
-const secret = 'your_secret_key'; // Use an environment variable in production
+const secret = 'your_secret_key'; 
 
-// POST /auth/login
+
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -14,7 +14,7 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    // Check if user exists and password is correct (pseudo code)
+   
     const user = await User.findOne({ username });
     if (user && user.password === password) {
       const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1h' });

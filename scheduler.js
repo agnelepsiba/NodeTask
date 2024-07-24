@@ -1,7 +1,7 @@
 const cron = require('node-cron');
-const nodemailer = require('nodemailer'); // For sending emails
+const nodemailer = require('nodemailer'); 
 
-// Configure your email transporter (using Gmail as an example)
+
 
 
 const transporter = nodemailer.createTransport({
@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   });
   
 
-// Function to send email notifications
+
 const sendEmailNotification = async () => {
   try {
     const info = await transporter.sendMail({

@@ -1,12 +1,11 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const users = []; // This will act as a mock database
+const users = []; 
 
-// Helper function to find user by username
+
 const findUserByUsername = (username) => users.find(user => user.username === username);
 
-// Register a new user
 const registerUser = (username, password) => {
   const hashedPassword = bcrypt.hashSync(password, 10);
   const user = { username, password: hashedPassword };
@@ -14,7 +13,6 @@ const registerUser = (username, password) => {
   return user;
 };
 
-// Authenticate user and generate token
 const authenticateUser = (username, password) => {
   const user = findUserByUsername(username);
   if (!user || !bcrypt.compareSync(password, user.password)) {

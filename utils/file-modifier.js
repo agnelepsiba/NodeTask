@@ -9,7 +9,7 @@ const modifyFile = () => {
       console.error('Error reading file:', err);
       return;
     }
-    const modifiedData = data.toUpperCase(); // Example modification
+    const modifiedData = data.toUpperCase(); 
     fs.writeFile(filePath, modifiedData, (err) => {
       if (err) {
         console.error('Error writing file:', err);

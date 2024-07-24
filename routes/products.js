@@ -6,27 +6,25 @@ const validateProduct = require('../validators/productValidator');
 
 const dataFilePath = path.join(__dirname, '../data/products.json');
 
-// Helper function to read data from the file
 const readData = () => {
   if (!fs.existsSync(dataFilePath)) {
-    fs.writeFileSync(dataFilePath, JSON.stringify([])); // Create file if it doesn't exist
+    fs.writeFileSync(dataFilePath, JSON.stringify([])); /
   }
   const data = fs.readFileSync(dataFilePath, 'utf8');
   return JSON.parse(data);
 };
 
-// Helper function to write data to the file
 const writeData = (data) => {
   fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2));
 };
 
-// GET all products
+
 router.get('/', (req, res) => {
   const data = readData();
   res.json(data);
 });
 
-// GET a single product by ID
+
 router.get('/:id', (req, res) => {
   const data = readData();
   const product = data.find(p => p.id === parseInt(req.params.id));
@@ -37,7 +35,7 @@ router.get('/:id', (req, res) => {
   }
 });
 
-// POST a new product
+
 router.post('/', validateProduct, (req, res) => {
   const data = readData();
   console.log('Data:', data);
@@ -53,7 +51,7 @@ router.post('/', validateProduct, (req, res) => {
   res.status(201).json(newProduct);
 });
 
-// PUT (update) a product by ID
+
 router.put('/:id', validateProduct, (req, res) => {
   const data = readData();
   const productIndex = data.findIndex(p => p.id === parseInt(req.params.id));
@@ -66,14 +64,14 @@ router.put('/:id', validateProduct, (req, res) => {
   }
 });
 
-// DELETE a product by ID
+
 router.delete('/:id', (req, res) => {
   let data = readData();
   const productIndex = data.findIndex(p => p.id === parseInt(req.params.id));
   if (productIndex !== -1) {
     data.splice(productIndex, 1);
     writeData(data);
-    res.status(204).send(); // No content
+    res.status(204).send(); 
   } else {
     res.status(404).send('Product not found');
   }
